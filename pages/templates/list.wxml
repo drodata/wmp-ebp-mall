@@ -1,0 +1,50 @@
+<!--
+  * list 
+-->
+
+<template name="list">
+  <view class="weui-cells__title">{{header}}</view>
+  <view class="weui-cells weui-cells_after-title">
+    <block wx:for="{{items}}" wx:key="*this">
+      <template is="cell" data="{{...item}}"></template>
+    </block>
+  </view>
+</template>
+
+<template name="cell">
+  <block wx:if="{{action.name == 'navigate'}}">
+    <navigator url="{{action.url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <template is="cellContent" data="{{...content, access: true}}"></template>
+    </navigator>
+  </block>
+  <block wx:elif="{{action.name == 'tap'}}">
+    <view class="weui-cell" bindtap="{{action.bind}}" data-set="{{action.dataset}}">
+      <template is="cellContent" data="{{...content, access: true}}"></template>
+    </view>
+  </block>
+  <block wx:elif="{{action.name == 'pick'}}">
+    <picker bindchange="{{action.bind}}" value="{{action.index}}" range="{{action.items}}">
+      <view class="weui-cell picker">
+        <template is="cellContent" data="{{...content, access: true}}"></template>
+      </view>
+    </picker>
+  </block>
+  <block wx:else>
+    <view class="weui-cell">
+      <template is="cellContent" data="{{...content, access: false}}"></template>
+    </view>
+  </block>
+</template>
+
+<template name="cellContent">
+  <view wx:if="{{header}}" class="weui-cell__hd">
+    <image src="{{header}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+  </view>
+  <view class="weui-cell__bd">
+    <view style="display: inline-block; vertical-align: middle">{{body}}</view>
+    <view wx:if="{{badge}}" class="weui-badge{{badge === 'dot' ? ' weui-badge_dot' : ''}}" style="margin-left: 5px;">
+      {{badge === 'dot' ? '' : badge}}
+    </view>
+  </view>
+  <view class="{{access ? 'weui-cell__ft weui-cell__ft_in-access' : 'weui-cell__ft'}}">{{footer}}</view>
+</template>

@@ -1,0 +1,28 @@
+<import src="../templates/list.wxml"/>
+<import src="../templates/input.wxml"/>
+<import src="../templates/message.wxml"/>
+
+<view class="page">
+  <view class="page-body">
+    <block wx:if="{{message}}">
+      <template is="message" data="{{...message}}"/>
+    </block>
+    <block wx:else>
+      <form bindsubmit="submitForm">
+        <view class="weui-cells weui-cells_after-title">
+          <template is="textarea" data="{{...fields.note}}"/>
+        </view>
+
+        <view class="weui-cells__title"></view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="cell" data="{{...cells.auditor}}"/>
+          <template is="cell" data="{{...cells.carbon}}"/>
+        </view>
+    
+        <view class="weui-btn-area">
+            <button type="primary" formType="submit" loading="{{btnLoading}}" disabled="{{btnDisabled}}">提交</button>
+        </view>
+      </form>
+    </block>
+  </view>
+</view>

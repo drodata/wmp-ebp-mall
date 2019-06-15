@@ -1,0 +1,82 @@
+<import src="../templates/list.wxml"/>
+<import src="../templates/input.wxml"/>
+<import src="../templates/message.wxml"/>
+
+<view class="page">
+  <view class="page-body">
+    <block wx:if="{{message}}">
+      <template is="message" data="{{...message}}"/>
+    </block>
+    <block wx:else>
+      <form bindsubmit="submitForm" bindreset="resetForm">
+        <view class="weui-cells__title">基本信息</view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="cell" data="{{...cells.customer}}"/>
+
+          <block wx:if="{{customer}}">
+            <template is="cell" data="{{...cells.currency}}"/>
+            <template is="cell" data="{{...cells.payment_way}}"/>
+
+            <block wx:if="{{isForeignCurrency}}">
+              <template is="input" data="{{...fields.exchange_rate}}"/>
+            </block>
+          </block>
+
+          <template is="cell" data="{{...cells.via}}"/>
+
+          <template is="cell" data="{{...cells.source}}"/>
+          <block wx:if="{{attributes.source == '2'}}">
+            <template is="cell" data="{{...cells.supplier}}"/>
+          </block>
+
+          <template wx:if="{{needAudit}}" is="cell" data="{{...cells.auditor}}"/>
+        </view>
+
+        <view class="weui-cells__title">附件</view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="checkboxList" data="{{...cells.attachment}}"/>
+        </view>
+
+        <block wx:for="{{goods}}" wx:key="*this">
+          <view class="weui-cells__title">
+            订货明细
+            <button type="warn" size="mini" bindtap="deleteRow" data-set="{{index}}" style="float:right">删除</button>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <template is="cell" data="{{...item.cells.type}}"/>
+            <template is="picker" data="{{...item.cells.name}}"/>
+            <block wx:if="{{item.needLevel}}">
+              <template is="cell" data="{{...item.cells.level}}"/>
+            </block>
+            <template is="input" data="{{...item.fields.size}}"/>
+            <block wx:if="{{item.isYmg}}">
+              <template is="cell" data="{{...item.cells.solute}}"/>
+              <template is="picker" data="{{...item.cells.purity}}"/>
+            </block>
+            <block wx:if="{{!item.isSample}}">
+              <template is="input" data="{{...item.fields.uprice}}"/>
+            </block>
+            <block wx:if="{{isOutsourcing}}">
+              <template is="input" data="{{...item.fields.cost}}"/>
+            </block>
+            <template is="input" data="{{...item.fields.quantity}}"/>
+          </view>
+        </block>
+        <button type="primary" size="mini" bindtap="appendRow" style="margin:10px;">继续添加</button>
+
+        <view class="weui-cells__title">其它信息</view>
+        <view class="weui-cells weui-cells_after-title">
+          <block wx:if="{{customer}}">
+            <template is="cell" data="{{...cells.address}}"/>
+          </block>
+          <template is="switch" data="{{...cells.applyToCustomsSwitch}}"/>
+          <template is="textarea" data="{{...fields.note}}"/>
+        </view>
+
+        <view class="weui-btn-area">
+          <button type="primary" formType="submit" loading="{{btnLoading}}" disabled="{{btnDisabled}}">提交</button>
+        </view>
+      </form>
+    </block>
+  </view>
+</view>

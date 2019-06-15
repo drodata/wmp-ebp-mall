@@ -1,0 +1,13 @@
+<import src="../templates/loadmore.wxml"/>
+<import src="../templates/preview.wxml"/>
+
+<view class="page">
+  <block wx:if="{{orders.length == 0}}">
+    <template is="loading"/>
+  </block>
+  <block wx:else>
+    <block wx:for="{{orders}}" wx:key="*this" wx:for-item="order">
+      <template is="preview" data="{{...order}}"/>
+    </block>
+  </block>
+</view>

@@ -1,0 +1,38 @@
+<view class="page">
+  <view class="page-header">
+    <view class="page-title">账号绑定</view>
+    <view class="page-desc">欢迎使用亚龙微助手, 请绑定您的订单系统账号。</view>
+  </view>
+  <view class="page-body">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+      <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </view>
+      <view class="weui-cells__title">订单系统账号信息</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">用户名</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="LoginForm[username]" placeholder="" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">密码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="LoginForm[password]" password="true" placeholder="" />
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button type="primary" formType="submit" 
+          loading="{{btnLoading}}" disabled="{{btnDisabled}}">绑定</button>
+      </view>
+    </form>
+  </view> <!-- .page-body -->
+</view>

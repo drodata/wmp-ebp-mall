@@ -1,0 +1,12 @@
+<import src="../templates/preview.wxml"/>
+
+<view class="page">
+  <view class="page-header">
+    <view class="page-title">Preview</view>
+    <view class="page-desc">表单信息预览</view>
+  </view>
+  <view class="page-body">
+    <template is="preview" data="{{...preview}}"/>
+    <template is="preview" data="{{...lite}}"/>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!--site.wxml-->
+<view class="page">
+  <view class="page-body">
+      <form bindsubmit="submitForm">
+        <van-cell-group>
+          <van-field
+            name="name"
+            value="{{ value }}"
+            placeholder="品牌名称"
+            border="{{ false }}"
+          />
+          <van-field
+            name="alias"
+            value="{{ value }}"
+            placeholder="品牌别称"
+            border="{{ true }}"
+          />
+        </van-cell-group>
+
+        <view class="weui-btn-area">
+            <button type="primary" formType="submit" loading="{{btnLoading}}" disabled="{{btnDisabled}}">提交</button>
+        </view>
+      </form>
+  </view>
+</view>

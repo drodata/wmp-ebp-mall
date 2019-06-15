@@ -1,0 +1,15 @@
+<import src="../templates/input.wxml"/>
+
+<view class="page">
+  <view class="page-body">
+    <block wx:if="{{!province_id}}">
+      <template is="radioList" data="{{...province}}"/>
+    </block>
+    <block wx:if="{{province_id && !city_id}}">
+      <template is="radioList" data="{{...city}}"/>
+    </block>
+    <block wx:if="{{city_id}}">
+      <template is="radioList" data="{{...district}}"/>
+    </block>
+  </view>
+</view>

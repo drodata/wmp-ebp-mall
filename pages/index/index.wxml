@@ -1,0 +1,16 @@
+<import src="../templates/list.wxml"/>
+<import src="../templates/panel.wxml"/>
+
+<view class="page">
+  <view class="page-body">
+    <block wx:if="{{session.isBind == true}}">
+      <template is="panel" data="{{...indexPanel}}"/>
+      <block wx:if="glanceList.items.length > 0">
+        <template is="list" data="{{...glanceList}}"/>
+      </block>
+      <block wx:if="quickList.items.length > 0">
+        <template is="list" data="{{...quickList}}"/>
+      </block>
+    </block>
+  </view>
+</view>

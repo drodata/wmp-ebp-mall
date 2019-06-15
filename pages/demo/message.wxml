@@ -1,0 +1,9 @@
+<import src="../templates/message.wxml"/>
+
+<view class="page">
+  <view class="page-body">
+    <template is="message" data="{{...message}}"/>
+  </view>
+  <view class="page-footer">
+  </view>
+</view>

@@ -1,0 +1,68 @@
+<!--
+  preview
+    preview: {
+      //header: {label: '姓名', value: 'go'},
+      items: [
+        {label: '姓名', value: 'go'},
+        {label: '地址', value: 'long long long long long long long long long long long long long long long long long long time ago'},
+      ],
+      actions: [
+        {
+          name: 'tap',
+          bind: 'go',
+          text: 'Go',
+        },
+        {
+          name: 'navigate',
+          url: '/pages/index/index',
+          method: 'switchTab',
+          text: '返回首页',
+        },
+      ],
+    },
+-->
+<template name="preview">
+  <view class="weui-form-preview">
+    <view wx:if="{{header}}" class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">{{header.label}}</view>
+        <view class="weui-form-preview__value_in-hd">{{header.value}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <block wx:for="{{items}}" wx:key="*this">
+        <template is="previewItem" data="{{...item}}"/>
+      </block>
+    </view>
+    <view wx:if="{{actions}}" class="weui-form-preview__ft">
+      <block wx:for="{{actions}}" wx:key="*this">
+        <template is="previewButton" data="{{...item}}"/>
+      </block>
+    </view>
+  </view>
+</template>
+
+<template name="previewItem">
+  <view class="weui-form-preview__item">
+    <view class="weui-form-preview__label">{{label}}</view>
+    <view class="weui-form-preview__value">{{value}}</view>
+  </view>
+</template>
+<template name="previewButton">
+  <block wx:if="{{name == 'navigate'}}">
+    <navigator 
+      class="weui-form-preview__btn weui-form-preview__btn_{{type ? type : 'default'}}" 
+      open-type="{{method ? method : 'navigate'}}" 
+      url="{{url}}" 
+      hover-class="weui-form-preview__btn_active">
+        {{text}}
+    </navigator>
+  </block>
+  <block wx:elif="{{name == 'tap'}}">
+    <view class="weui-form-preview__btn weui-form-preview__btn_{{type ? type : 'default'}}" 
+      bindtap="{{bind}}" data-set="{{dataset}}"
+      hover-class="weui-form-preview__btn_active">
+        {{text}}
+    </view>
+  </block>
+</template>

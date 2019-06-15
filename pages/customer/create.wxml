@@ -1,0 +1,55 @@
+<import src="../templates/list.wxml"/>
+<import src="../templates/input.wxml"/>
+<import src="../templates/message.wxml"/>
+
+<view class="page">
+  <view class="page-body">
+    <block wx:if="{{message}}">
+      <template is="message" data="{{...message}}"/>
+    </block>
+    <block wx:else>
+      <form bindsubmit="submit">
+    
+        <view class="weui-cells__title">基本信息</view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="input" data="{{...fields.full_name}}"/>
+          <template is="input" data="{{...fields.short_name}}"/>
+          <template is="picker" data="{{...cells.customerIndustry}}"/>
+          <template is="picker" data="{{...cells.customerVia}}"/>
+        </view>
+    
+        <view class="weui-cells__title">财务属性</view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="cell" data="{{...cells.currency}}"/>
+          <template is="cell" data="{{...cells.invoiceType}}"/>
+          <template is="switch" data="{{...cells.showPrice}}"/>
+        </view>
+    
+        <view class="weui-cells__title">联系方式</view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="input" data="{{...fields.contacter}}"/>
+          <template is="input" data="{{...fields.duty}}"/>
+          <template is="input" data="{{...fields.cell_phone}}"/>
+          <template is="input" data="{{...fields.office_phone}}"/>
+        </view>
+    
+        <view class="weui-cells__title">地址</view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="cell" data="{{...cells.countryId}}"/>
+          <block wx:if="{{isMainland}}">
+            <template is="cell" data="{{...cells.region}}"/>
+          </block>
+          <template is="textarea" data="{{...fields.street}}"/>
+        </view>
+    
+      
+        <block wx:if="{{deliverWayIndex == 0}}">
+        </block>
+    
+        <view class="weui-btn-area">
+            <button formType="submit" class="weui-btn" type="primary" loading="{{btnLoading}}"  disabled="{{btnDisabled}}">提交</button>
+        </view>
+      </form>
+    </block>
+  </view>
+</view>

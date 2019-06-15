@@ -1,0 +1,31 @@
+<import src="../templates/list.wxml"/>
+<import src="../templates/input.wxml"/>
+
+<view class="page">
+  <view class="page-header">
+    <view class="page-title">订单{{id}}发货</view>
+    <view class="page-desc"></view>
+  </view>
+  <view class="page-body">
+    <form bindsubmit="submit">
+
+      <template is="list" data="{{...deliverWayList}}"/>
+    
+      <block wx:if="{{deliverWayIndex == 0}}">
+        <template is="list" data="{{...lineList}}"/>
+        <view class="weui-cells__title"></view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="input" data="{{...inputTrackingNumber}}"/>
+        </view>
+        <view class="weui-cells__title"></view>
+        <view class="weui-cells weui-cells_after-title">
+          <template is="input" data="{{...inputWeight}}"/>
+        </view>
+      </block>
+
+      <view class="weui-btn-area">
+          <button formType="submit" class="weui-btn" type="primary" loading="{{btnLoading}}"  disabled="{{btnDisabled}}">提交</button>
+      </view>
+    </form>
+  </view>
+</view>

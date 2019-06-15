@@ -1,0 +1,9 @@
+# vim's session file
+*.vim-session
+
+# vim's swap files
+*.sw*
+
+# npm vendor dir
+/miniprogram_npm
+/node_modules

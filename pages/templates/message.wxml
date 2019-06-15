@@ -1,0 +1,49 @@
+<!--
+  * message
+  * 数据举例：
+message: {
+  icon: 'success',
+  title: 'Done',
+  desc: 'ggo',
+  buttons: [
+    {
+      url: '/pages/index/index',
+      type: 'primary',
+      method: 'switchTab',
+      text: '返回首页',
+    },
+    {
+      url: '/pages/customer/index',
+      type: 'default',
+      text: '放弃',
+    },
+  ],
+},
+-->
+
+<template name="message">
+  <view class="weui-msg"> 
+    <view class="weui-msg__icon-area">
+      <icon type="{{icon ? icon : 'success'}}" size="93"></icon>
+    </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">{{title}}</view>
+        <view class="weui-msg__desc">{{desc}}</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+              <block wx:for="{{buttons}}" wx:key="*this">
+                <template is="messageButton" data="{{...item}}"></template>
+              </block>
+            </view>
+        </view>
+        <view class="weui-msg__extra-area">
+        </view>
+    </view>
+</template>
+
+<template name="messageButton">
+  <navigator class="weui-btn" open-type="{{method ? method : 'navigate'}}" url="{{url}}">
+    <button type="{{type ? type : 'default'}}">{{text}}</button>
+  </navigator>
+</template>

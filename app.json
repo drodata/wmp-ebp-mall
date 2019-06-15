@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/demo/panel",
+    "pages/site/site",
+    "pages/order/create",
+    "pages/index/index",
+    "pages/demo/input",
+    "pages/customer/index",
+    "pages/order/index",
+    "pages/order/pickup",
+    "pages/index/bind",
+    "pages/user/index",
+    "pages/customer/view",
+    "pages/customer/search",
+    "pages/customer/create",
+    "pages/customer/call",
+    "pages/demo/index",
+    "pages/demo/list",
+    "pages/demo/searchbar",
+    "pages/demo/message",
+    "pages/demo/uploader",
+    "pages/demo/preview",
+    "pages/demo/map",
+    "pages/common/region",
+    "pages/common/carbon",
+    "pages/common/auditor",
+    "pages/common/outsourcing",
+    "pages/common/address",
+    "pages/common/country-chooser",
+    "pages/audit/create",
+    "pages/mark/create",
+    "pages/mark/view",
+    "pages/timeline/index",
+    "pages/notification/audit",
+    "pages/notification/index",
+    "pages/logs/logs",
+    "site"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3884ff",
+    "navigationBarTitleText": "WMA Template",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#3884ff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home-a.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我",
+        "iconPath": "icons/user.png",
+        "selectedIconPath": "icons/user-a.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

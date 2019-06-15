@@ -1,0 +1,30 @@
+<import src="../templates/list.wxml"/>
+<import src="../templates/loadmore.wxml"/>
+
+<view class="page">
+  <view class="page-body">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view> 
+    
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+      <block wx:if="{{resultItems.length > 0}}">
+        <block wx:for="{{resultItems}}" wx:key="id">
+          <template is="cell" data="{{...item}}"></template>
+        </block>
+      </block>
+      <block wx:else>
+        <template is="line" data="{{text: '没有匹配的客户'}}"></template>
+      </block>
+    </view>
+  </view>
+</view>

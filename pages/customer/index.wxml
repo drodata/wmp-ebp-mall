@@ -1,0 +1,24 @@
+<import src="../templates/loadmore.wxml"/>
+<import src="../templates/panel.wxml"/>
+
+<view class="page">
+
+  <template is="panel" data="{{...topList}}"/>
+
+  <block wx:if="{{!customers}}">
+    <template is="loading"/>
+  </block>
+  <block wx:else>
+    <template is="panel" data="{{header: '客户列表', items: customers}}"/>
+    
+    <block wx:if="{{reachBottom && hasMore}}">
+      <template is="loading"/>
+    </block>
+  </block>
+</view>
+
+<!--
+    <view class="page-body page-body-space">
+      <button bindtap="go" class="weui-btn" type="primary">Navigate</button>
+    </view>
+-->

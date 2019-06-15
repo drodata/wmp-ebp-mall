@@ -1,0 +1,27 @@
+<import src="../templates/input.wxml"/>
+
+<view class="page">
+  <view class="carbon-confirm-area page-body-space">
+    <view class="carbon-button">
+      <button bindtap="confirmCheck" class="weui-btn mini-btn" type="primary" size="mini" disabled="{{btnDisabled}}">确定</button>
+    </view>
+    <view class="carbon-desc">
+    {{desc}}
+    </view>
+  </view>
+  <view class="page-body" style="margin-top:100px">
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells weui-cells_after-title">
+      <template is="checkboxList" data="{{...carbon.all}}"/>
+    </view>
+    <view class="weui-cells__title">部门</view>
+    <view class="weui-cells weui-cells_after-title">
+      <template is="checkboxList" data="{{...carbon.department}}"/>
+    </view>
+    <view class="weui-cells__title">员工</view>
+    <view class="weui-cells weui-cells_after-title">
+      <template is="checkboxList" data="{{...carbon.user}}"/>
+    </view>
+  </view>
+</view>
+

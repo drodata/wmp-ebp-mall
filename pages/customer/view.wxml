@@ -1,0 +1,14 @@
+<import src="../templates/list.wxml"/>
+<view class="page">
+  <view class="page-body">
+    <block wx:if="{{customer}}">
+      <template is="list" data="{{...customer}}"/>
+    </block>
+    <block wx:else>
+      <import src="../templates/loadmore.wxml"/>
+      <template is="loading"/>
+    </block>
+  </view>
+  <view class="page-footer">
+  </view>
+</view>

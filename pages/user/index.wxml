@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="page-body">
+    <block wx:if="{{userList}}">
+      <import src="../templates/list.wxml"/>
+      <template is="list" data="{{...userList}}"/>
+    </block>
+    <view class="page-body-space margin-top-15">
+        <button bindtap="revoke" class="weui-btn" type="warn" loading="{{btnLoading}}"  disabled="{{btnDisabled}}">解绑账号</button>
+    </view>
+  </view>
+  <view class="page-footer">
+  </view>
+</view>
