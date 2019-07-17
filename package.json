@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "dependencies": {
-    "vant-weapp": "^0.5.13"
+    "vant-weapp": "^0.5.14"
   },
   "devDependencies": {},
   "scripts": {

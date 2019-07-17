@@ -40,7 +40,6 @@ App({
   getCode: function (cb) {
     wx.login({
       success: function (res) {
-        console.log(res)
         typeof cb == "function" && cb(res.code)
       },
       fail: function(res) {
@@ -84,6 +83,8 @@ App({
             code: code,
           },
           success: function (res) {
+            console.log('success:', res)
+
             var objSession = res.data
             wx.setStorageSync('session', objSession)
             app.data.session = objSession

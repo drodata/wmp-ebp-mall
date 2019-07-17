@@ -1,14 +1,16 @@
 {
   "pages": [
-    "pages/demo/panel",
+    "pages/sku/index",
     "pages/site/site",
-    "pages/order/create",
+
     "pages/index/index",
+    "pages/index/bind",
+    "pages/demo/panel",
+    "pages/order/create",
     "pages/demo/input",
     "pages/customer/index",
     "pages/order/index",
     "pages/order/pickup",
-    "pages/index/bind",
     "pages/user/index",
     "pages/customer/view",
     "pages/customer/search",

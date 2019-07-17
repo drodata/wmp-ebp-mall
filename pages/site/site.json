@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "van-button": "../../utils/vant/button/index",
-    "van-field": "../../utils/vant/field/index"
+    "van-button": "../../miniprogram_npm/vant-weapp/button/index",
+    "van-field": "../../miniprogram_npm/vant-weapp/field/index"
   }
 }

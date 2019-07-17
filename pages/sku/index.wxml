@@ -1,0 +1,25 @@
+<!--pages/sku/index.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" class="jjj"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{sku.imageUrls}}">
+    <swiper-item>
+      <image src="{{item}}" style="width:100%" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!--
+-->
+<van-row>
+  <van-col span="8">span: 8</van-col>
+  <van-col span="8">span: 8</van-col>
+  <van-col span="8">span: 8</van-col>
+</van-row>
+
+<van-card
+  num="2"
+  price="2.00"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageUrl }}"
+/>

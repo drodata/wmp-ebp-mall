@@ -1,0 +1,4 @@
+/* pages/sku/index.wxss */
+.jj {
+    height: 100vh;
+}
