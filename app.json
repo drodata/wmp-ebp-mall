@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/sku/index",
+    "pages/sku/view",
+    "pages/demo/panel",
     "pages/site/site",
-
     "pages/index/index",
     "pages/index/bind",
-    "pages/demo/panel",
     "pages/order/create",
     "pages/demo/input",
     "pages/customer/index",
@@ -35,8 +35,7 @@
     "pages/timeline/index",
     "pages/notification/audit",
     "pages/notification/index",
-    "pages/logs/logs",
-    "site"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "dark",

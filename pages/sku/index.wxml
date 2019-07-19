@@ -1,0 +1,5 @@
+<!--pages/sku/index.wxml-->
+<view class="btn-area">
+  <navigator url="/pages/sku/view?id=5" hover-class="navigator-hover">有图片</navigator>
+  <navigator url="/pages/sku/view?id=6" hover-class="navigator-hover">无图片</navigator>
+</view>

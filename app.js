@@ -9,7 +9,24 @@ App({
   util: util,
   config: config,
   region: region,
-  onLaunch: function () {
+  onLaunch: function() {
+    wx.getSystemInfo({
+      success: e => {
+        this.globalData.StatusBar = e.statusBarHeight;
+        let custom = wx.getMenuButtonBoundingClientRect();
+        this.globalData.Custom = custom;
+        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+      }
+    })
+  },
+  globalData: {
+    ColorList: [
+      {
+        title: '嫣红',
+        name: 'red',
+        color: '#e54d42'
+      }, 
+    ]
   },
   onShow: function () {
     // 将会话和用户存储到 app.data 属性内, 供页面调用
