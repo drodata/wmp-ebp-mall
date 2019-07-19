@@ -1,0 +1,10 @@
+<swiper class="screen-swiper {{indicatorDots ? 'square-dot' : ''}}" 
+  indicator-dots="{{indicatorDots}}" 
+  circular="true" 
+  autoplay="{{autoplay}}" 
+  interval="5000" 
+  duration="500">
+  <swiper-item wx:for="{{items}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
